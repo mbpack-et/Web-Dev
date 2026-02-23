@@ -1,0 +1,34 @@
+@if (!currentStep) {
+  <h1>Angular Tutorial (Task 1)</h1>
+  <ul>
+    @for (step of steps; track step.id) {
+      <li><button (click)="select(step.id)">{{ step.title }}</button></li>
+    }
+  </ul>
+} @else {
+  <button (click)="back()">Back</button>
+  @switch (currentStep) {
+    @case ('introduction') { <app-introduction /> }
+    @case ('anatomy') { <app-anatomy /> }
+    @case ('updating') { <app-updating /> }
+    @case ('composition') { <app-composition /> }
+    @case ('control-if') { <app-control-if /> }
+    @case ('control-for') { <app-control-for /> }
+    @case ('property-binding') { <app-property-binding /> }
+    @case ('event-handling') { <app-event-handling /> }
+    @case ('input-props') { <app-input-props /> }
+    @case ('output-props') { <app-output-props /> }
+    @case ('deferrable-views') { <app-deferrable-views /> }
+    @case ('optimizing-images') { <app-optimizing-images /> }
+    @case ('forms') { <app-forms /> }
+    @case ('form-control-value') { <app-form-control-value /> }
+    @case ('reactive-forms') { <app-reactive-forms /> }
+    @case ('validating-forms') { <app-validating-forms /> }
+    @case ('pipes') { <app-pipes /> }
+    @case ('formatting-data-with-pipes') { <app-formatting-data-with-pipes /> }
+    @case ('create-a-pipe') { <app-create-a-pipe /> }
+    @case ('injectable-service') { <app-injectable-service /> }
+    @case ('di') { <app-di /> }
+    @case ('enabling-routing') { <app-enabling-routing /> }
+  }
+}

@@ -1,6 +1,20 @@
 const form = document.getElementById('todo-form');
 const input = document.getElementById('todo-input');
 const list = document.getElementById('todo-list');
+const button= document.getElementById("toggleBtn");
+const toggleBtn = document.getElementById("toggleBtn");
+const todoList = document.getElementById("todo-list");
+
+toggleBtn.addEventListener("click", () => {
+    todoList.classList.toggle("hidden");
+
+    if (todoList.classList.contains("hidden")) {
+        toggleBtn.textContent = "show";
+    } else {
+        toggleBtn.textContent = "hide";
+    }
+});
+
 
 form.addEventListener('submit', function (event){
     event.preventDefault();
