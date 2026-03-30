@@ -1,0 +1,17 @@
+<div class="product-list">
+  @if (displayProducts.length > 0) {
+    <div class="products-grid">
+      @for (product of displayProducts; track product.id) {
+        <app-product-item 
+          [product]="product"
+          (delete)="onProductDelete($event)"
+        />
+      }
+    </div>
+  } @else {
+    <div class="empty-state">
+      <p>No products in this category</p>
+      <p class="empty-message">Please select another category or all products have been deleted</p>
+    </div>
+  }
+</div>

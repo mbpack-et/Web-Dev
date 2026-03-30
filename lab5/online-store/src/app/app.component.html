@@ -1,0 +1,63 @@
+<div class="app-container">
+  <header class="header">
+    <h1>🛍 Online Store</h1>
+    <p class="subtitle">Browse and purchase amazing products</p>
+  </header>
+
+  <div class="main-content">
+    <aside class="sidebar">
+      <nav class="categories-nav">
+        <h2>Categories</h2>
+        <div class="category-buttons">
+          @for (category of categories; track category.id) {
+            <button 
+              [class.active]="isSelected(category)"
+              (click)="selectCategory(category)"
+              class="category-btn"
+            >
+              {{ category.name }}
+            </button>
+          }
+        </div>
+      </nav>
+    </aside>
+
+    <section class="products-section">
+      @if (selectedCategory()) {
+        <div class="category-header">
+          <h2>{{ selectedCategory()?.name }}</h2>
+          <p class="product-count">{{ getSelectedProducts().length }} products</p>
+        </div>
+        <app-product-list 
+          [products]="getSelectedProducts()"
+          (productDeleted)="onProductDeleted($event)"
+        />
+      } @else {
+        <div class="welcome-section">
+          <div class="welcome-content">
+            <h2>Welcome to Our Online Store</h2>
+            <p>Select a category from the sidebar to start browsing our amazing products!</p>
+            <div class="welcome-features">
+              <div class="feature">
+                <span class="feature-icon">⭐</span>
+                <p>High-quality products from trusted brands</p>
+              </div>
+              <div class="feature">
+                <span class="feature-icon">❤️</span>
+                <p>Mark your favorites with the like button</p>
+              </div>
+              <div class="feature">
+                <span class="feature-icon">📱</span>
+                <p>Easy sharing on WhatsApp and Telegram</p>
+              </div>
+              <div class="feature">
+                <span class="feature-icon">🛒</span>
+                <p>Direct links to Kaspi.kz for quick purchase</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </section>
+  </div>
+</div>
