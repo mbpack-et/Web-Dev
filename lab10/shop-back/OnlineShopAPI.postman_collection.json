@@ -1,0 +1,93 @@
+{
+  "info": {
+    "name": "Online Shop API",
+    "_postman_id": "e4ed5b24-1234-5678-9abc-abcdef012345",
+    "description": "Lab 9 Django REST Framework collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Get All Categories",
+          "request": {"method": "GET", "url": "{{base_url}}/api/categories/"}
+        },
+        {
+          "name": "Get Category by ID",
+          "request": {"method": "GET", "url": "{{base_url}}/api/categories/1/"}
+        },
+        {
+          "name": "Get Products by Category",
+          "request": {"method": "GET", "url": "{{base_url}}/api/categories/1/products/"}
+        },
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/categories/",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {"mode": "raw", "raw": "{\"name\": \"New Category\"}"}
+          }
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/api/categories/1/",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {"mode": "raw", "raw": "{\"name\": \"Updated Category\"}"}
+          }
+        },
+        {
+          "name": "Delete Category",
+          "request": {"method": "DELETE", "url": "{{base_url}}/api/categories/1/"}
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {"method": "GET", "url": "{{base_url}}/api/products/"}
+        },
+        {
+          "name": "Get Product by ID",
+          "request": {"method": "GET", "url": "{{base_url}}/api/products/1/"}
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/products/",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"New Product\", \"price\": 100.0, \"description\": \"Sample description\", \"count\": 10, \"is_active\": true, \"category_id\": 1}"
+            }
+          }
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/api/products/1/",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Updated Product\", \"price\": 120.0, \"description\": \"Updated description\", \"count\": 15, \"is_active\": true, \"category_id\": 1}"
+            }
+          }
+        },
+        {
+          "name": "Delete Product",
+          "request": {"method": "DELETE", "url": "{{base_url}}/api/products/1/"}
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {"key": "base_url", "value": "http://localhost:8000", "type": "string"}
+  ]
+}
